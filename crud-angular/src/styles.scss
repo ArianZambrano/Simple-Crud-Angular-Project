@@ -1,0 +1,11 @@
+@import '~ngx-toastr/toastr';
+$spacer: 1rem !default;
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 576px) { 
+    .button{
+        margin-bottom: ($spacer * 1.5);
+    }
+    .button-container{
+        margin-top: 0;
+    }
+ }

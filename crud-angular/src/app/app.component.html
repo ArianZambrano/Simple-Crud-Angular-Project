@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <div class="row text-center mt-4">
+        <h1 class="mx-auto">CRUD en Angular</h1>
+    </div>
+    <div class="button-container row mt-4">
+        <div class="button d-flex justify-content-center col-sm-6">
+            <button type="button" class="btn-lg btn-primary">
+                <a class="text-white" [routerLink]="['/create']">Create</a>
+            </button>
+        </div>
+        <div class="button d-flex justify-content-center col-sm-6">
+            <button type="button" class="btn-lg btn-secondary">
+                <a class="text-white" [routerLink]="['/read']">Read</a>
+            </button>
+        </div>
+    </div>
+    <div class="button-container row mt-4">
+        <div class="button d-flex justify-content-center col-sm-6">
+            <button type="button" class="btn-lg btn-success">
+                <a class="text-white" [routerLink]="['/update']">Update</a>
+            </button>
+        </div>
+        <div class="button d-flex justify-content-center col-sm-6">
+            <button type="button" class="btn-lg btn-danger">
+                <a class="text-white" [routerLink]="['/delete']">Delete</a>
+            </button>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+    <div class="row m-5">
+        <div class="col button d-flex justify-content-center">
+            <button type="button" class="btn btn-info" (click)="this.showTable=!this.showTable; 
+                                                                this.viewOrHideButton()">
+               {{typeButton}} Data
+            </button>
+        </div>
+        <div class="col button d-flex justify-content-center">
+            <button type="button" class="btn btn-info">
+                <a class="text-white" [routerLink]="['']">Back To Init</a>   
+            </button>
+        </div>
+    </div>
+    <app-data-table [shown]="showTable" *ngIf="showTable"></app-data-table>
+</div>
