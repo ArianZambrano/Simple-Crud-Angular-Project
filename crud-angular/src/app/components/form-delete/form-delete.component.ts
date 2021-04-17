@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class FormDeleteComponent implements OnInit {
   deleteForm: FormGroup
-  id: string = ''
+  id?: string
 
   constructor(private form: FormBuilder,
               private createService: ProcessDataService,
@@ -21,11 +21,11 @@ export class FormDeleteComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }
+
+  } 
 
   onSubmit(){
-    let idObject = this.deleteForm.value;
-    this.id = idObject["id"]
+    this.id = this.deleteForm.value.id;
     this.createService.deleteEntity(this.id)
     .then(() => {this.toastr.success('La entidad fue eliminada correctamente', 'Operación exitosa');})
     .catch(error => {console.log(error)})

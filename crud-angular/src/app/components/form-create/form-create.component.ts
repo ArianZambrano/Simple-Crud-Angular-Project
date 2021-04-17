@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProcessDataService } from 'src/app/services/process-data/process-data.service';
 import { ToastrService } from 'ngx-toastr';
 
-
 @Component({
   selector: 'app-form-create',
   templateUrl: './form-create.component.html',
@@ -28,8 +27,8 @@ export class FormCreateComponent implements OnInit {
   }
 
   onSubmit(){
-    this.entity = this.createForm.value;
-    this.createService.createEntity(this.entity)
+    this.entity = this.createForm.value
+    this.createService.createEntity(this.entity.id, this.entity)
     .then(() => {this.toastr.success('La entidad fue registrada correctamente', 'Operación exitosa');})
     .catch(error => {console.log(error)}) 
   }
