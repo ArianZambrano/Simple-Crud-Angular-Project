@@ -7,30 +7,19 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./form-update.component.scss']
 })
 export class FormUpdateComponent implements OnInit {
-  auxUpdateForm: FormGroup;
   updateForm: FormGroup;
+  id: string = ''
 
-  constructor(private auxForm: FormBuilder,
-    private form: FormBuilder) {
-    this.auxUpdateForm = this.auxForm.group({
+  constructor(private form: FormBuilder) {
+    this.updateForm = this.form.group({
       id: ['', Validators.required]
     });
-    this.updateForm = this.form.group({
-      id: ['', Validators.required],
-      name: ['', Validators.required],
-      lastName: ['', Validators.required]
-    })
   }
 
   ngOnInit(): void {
   }
 
-  getAuxUpdateForm(){
-    return this.auxForm
+  onSubmit(){
+    this.id = this.updateForm.value.id
   }
-
-  getUpdateForm(){
-    return this.updateForm
-  }
-
 }

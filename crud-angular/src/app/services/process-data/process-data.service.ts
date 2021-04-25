@@ -15,4 +15,11 @@ export class ProcessDataService{
   deleteEntity(id: string | undefined): Promise<any>{ 
     return this.firestore.collection('Entities').doc(id).delete();
   }
+
+  updateEntity(id: string, nameUp: string, lastNameUp: string): Promise<any>{
+    return  this.firestore.collection('Entities').doc(id).update({
+      name: nameUp,
+      lastName: lastNameUp
+    })
+  }
 }

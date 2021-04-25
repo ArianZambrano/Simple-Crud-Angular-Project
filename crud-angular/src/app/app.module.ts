@@ -18,6 +18,7 @@ import { FormCreateComponent } from './components/form-create/form-create.compon
 import { FormReadComponent } from './components/form-read/form-read.component';
 import { FormUpdateComponent } from './components/form-update/form-update.component';
 import { FormDeleteComponent } from './components/form-delete/form-delete.component';
+import { AuxFormUpdateComponent } from './components/aux-form-update/aux-form-update.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FormDeleteComponent } from './components/form-delete/form-delete.compon
     FormCreateComponent,
     FormReadComponent,
     FormUpdateComponent,
-    FormDeleteComponent
+    FormDeleteComponent,
+    AuxFormUpdateComponent
   ],
   imports: [
     BrowserModule,

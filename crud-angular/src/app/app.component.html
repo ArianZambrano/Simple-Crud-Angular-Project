@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
     <div class="row text-center mt-4">
         <h1 class="mx-auto">CRUD en Angular</h1>
     </div>
@@ -29,8 +29,7 @@
     <router-outlet></router-outlet>
     <div class="row m-5">
         <div class="col button d-flex justify-content-center">
-            <button type="button" class="btn btn-info" (click)="this.showTable=!this.showTable; 
-                                                                this.viewOrHideButton()">
+            <button type="button" class="btn btn-info" (click)="this.viewOrHideButton()">
                {{typeButton}} Data
             </button>
         </div>

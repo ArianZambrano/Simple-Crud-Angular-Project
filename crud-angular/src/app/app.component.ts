@@ -15,6 +15,7 @@ export class AppComponent {
   }
 
   viewOrHideButton(){
+    this.showTable=!this.showTable
     this.showTable ? this.typeButton = 'Hide' : this.typeButton = 'View';
   }
 

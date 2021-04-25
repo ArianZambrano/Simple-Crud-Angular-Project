@@ -3,12 +3,13 @@
         <h3 class="mx-auto text-center">Update Form</h3>
     </div>
     <div class="container">
-        <form [formGroup]="this.getUpdateForm()">
+        <form [formGroup]="updateForm" (submit)="onSubmit()">
             <div class="form-group">
               <input class="form-control" type="text" placeholder="Id" formControlName="id">
             </div>
             <button type="submit">Actualizar</button>
         </form>   
     </div>
+    <app-aux-form-update [id]="id" *ngIf="id"></app-aux-form-update>
 </div>
 
