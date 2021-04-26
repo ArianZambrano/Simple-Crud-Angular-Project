@@ -7,7 +7,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./aux-form-update.component.scss']
 })
 export class AuxFormUpdateComponent implements OnInit {
-  @Input() id: string = ""
+  @Input() id: string = "";
+  @Input() validated?: boolean 
   auxUpdateForm: FormGroup
 
   constructor(private auxForm: FormBuilder) {

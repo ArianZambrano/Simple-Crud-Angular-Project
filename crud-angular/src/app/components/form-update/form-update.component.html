@@ -7,9 +7,10 @@
             <div class="form-group">
               <input class="form-control" type="text" placeholder="Id" formControlName="id">
             </div>
-            <button type="submit">Actualizar</button>
+            <button type="submit">Buscar</button>
         </form>   
     </div>
-    <app-aux-form-update [id]="id" *ngIf="id"></app-aux-form-update>
 </div>
+<app-aux-form-update [id]="id" 
+                     [validated]="validated" *ngIf="id && validated"></app-aux-form-update>
 

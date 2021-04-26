@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class ProcessDataService{
 
   constructor(private firestore: AngularFirestore ) { }
+
+  getEntityById(id: string): Observable<any>{
+    return this.firestore.collection('Entities').doc(id).get();
+  }
 
   createEntity(id: string, data: any): Promise<any>{
     return this.firestore.collection('Entities').doc(id).set(data);

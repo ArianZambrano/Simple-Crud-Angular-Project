@@ -13,7 +13,7 @@ export class FormDeleteComponent implements OnInit {
   id?: string
 
   constructor(private form: FormBuilder,
-              private createService: ProcessDataService,
+              private deleteService: ProcessDataService,
               private toastr: ToastrService) {
     this.deleteForm = this.form.group({
       id: ['', Validators.required]
@@ -26,7 +26,7 @@ export class FormDeleteComponent implements OnInit {
 
   onSubmit(){
     this.id = this.deleteForm.value.id;
-    this.createService.deleteEntity(this.id)
+    this.deleteService.deleteEntity(this.id)
     .then(() => {this.toastr.success('La entidad fue eliminada correctamente', 'Operación exitosa');})
     .catch(error => {console.log(error)})
   }

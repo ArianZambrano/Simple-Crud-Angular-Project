@@ -16,7 +16,10 @@
             </span>
         </div>
     </div>
-    <div *ngFor="let entity of entities | async" class="d-flex align-items-center h-25">
+    <div *ngIf="!(entities | async)?.length" class="text-center">
+        Cargando...
+    </div>
+    <div *ngFor="let entity of entities | async" class="d-flex align-items-center">
         <div class="col text-center border content">
             <span class="border-left">
                 {{entity.id}}
