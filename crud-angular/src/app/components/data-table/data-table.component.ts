@@ -14,7 +14,6 @@ export class DataTableComponent implements OnInit {
 
   constructor(firestore: AngularFirestore) { 
     this.entities = firestore.collection('Entities').valueChanges();
-    console.log(this.entities)
   }
 
   ngOnInit(): void {

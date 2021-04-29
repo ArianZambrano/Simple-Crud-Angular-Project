@@ -3,12 +3,12 @@
         <!--espacio vacio-->
     </div>
     <div class="container">
-      <form [formGroup]="this.auxUpdateForm">
+      <form #auxUpdateForm="ngForm" (submit)="onSubmit()">
         <div class="form-group">
-          <input class="form-control" type="text" placeholder="Name" formControlName="name">
+          <input class="form-control" type="text" [(ngModel)]="entity.name" name="name">
         </div>
         <div class="form-group">
-          <input class="form-control" type="text" placeholder="Last Name" formControlName="lastName">
+          <input class="form-control" type="text" [(ngModel)]="entity.lastName" name="lastName">
         </div>
         <button type="submit">Actualizar</button>
       </form>

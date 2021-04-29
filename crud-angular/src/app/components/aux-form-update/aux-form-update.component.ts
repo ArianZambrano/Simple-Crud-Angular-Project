@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ProcessDataService } from '../../services/process-data/process-data.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-aux-form-update',
@@ -8,17 +9,19 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class AuxFormUpdateComponent implements OnInit {
   @Input() id: string = "";
-  @Input() validated?: boolean 
-  auxUpdateForm: FormGroup
+  @Input() entity?: any; 
 
-  constructor(private auxForm: FormBuilder) {
-    this.auxUpdateForm = this.auxForm.group({
-      name: ['', Validators.required],
-      lastName: ['', Validators.required]
-    });
-   }
+  constructor(private updateService: ProcessDataService,
+              private toastr: ToastrService) {
+  }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(){
+    this.updateService.updateEntity(this.entity.id, this.entity.name, this.entity.lastName)
+    .then(() => {this.toastr.success('La entidad fue actualizada correctamente', 'Operación exitosa');})
+    .catch(error => {console.log(error)}) 
   }
 
 }
