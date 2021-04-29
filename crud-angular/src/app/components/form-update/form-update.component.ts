@@ -12,7 +12,6 @@ export class FormUpdateComponent implements OnInit {
   updateForm: FormGroup;
   id: string = '';
   entity: any;
-  validated?: boolean
 
   constructor(private form: FormBuilder,
               private updateService: ProcessDataService,
@@ -35,7 +34,6 @@ export class FormUpdateComponent implements OnInit {
     .subscribe((doc)=>{
       if (doc.exists){
         this.entity = doc.data();
-        this.validated = true
       }
       else{
         this.toastr.error('La entidad que busca no existe')

@@ -19,6 +19,7 @@ import { FormReadComponent } from './components/form-read/form-read.component';
 import { FormUpdateComponent } from './components/form-update/form-update.component';
 import { FormDeleteComponent } from './components/form-delete/form-delete.component';
 import { AuxFormUpdateComponent } from './components/aux-form-update/aux-form-update.component';
+import { EntityReadComponent } from './components/entity-read/entity-read.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AuxFormUpdateComponent } from './components/aux-form-update/aux-form-up
     FormReadComponent,
     FormUpdateComponent,
     FormDeleteComponent,
-    AuxFormUpdateComponent
+    AuxFormUpdateComponent,
+    EntityReadComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ProcessDataService } from '../../services//process-data//process-data.service'
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-form-read',
@@ -8,8 +10,11 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class FormReadComponent implements OnInit {
   readForm: FormGroup;
+  entity: any
 
-  constructor(private form: FormBuilder) {
+  constructor(private form: FormBuilder,
+              private readService: ProcessDataService,
+              private toastr: ToastrService) {
     this.readForm = this.form.group({
       id: ['', Validators.required]
     })
@@ -18,8 +23,15 @@ export class FormReadComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getReadForm(){
-    return this.readForm
+  onSubmit(){
+    this.readService.getEntityById(this.readForm.value.id)
+    .subscribe((doc)=>{
+      if (doc.exists){
+        this.entity = doc.data();
+      }
+      else{
+        this.toastr.error('La entidad que busca no existe')
+      }
+    })
   }
-
 }

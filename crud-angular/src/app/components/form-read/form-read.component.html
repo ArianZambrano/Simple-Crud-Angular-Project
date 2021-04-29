@@ -3,7 +3,7 @@
         <h3 class="mx-auto text-center">Read Form</h3>
     </div>
     <div class="container">
-        <form [formGroup]="this.getReadForm()">
+        <form [formGroup]="readForm" (submit)="onSubmit()">
             <div class="form-group">
               <input class="form-control" type="text" placeholder="Id" formControlName="id">
             </div>
@@ -11,4 +11,5 @@
         </form>   
     </div>
 </div>
+<app-entity-read [entity]="entity" *ngIf="entity"></app-entity-read>
 
