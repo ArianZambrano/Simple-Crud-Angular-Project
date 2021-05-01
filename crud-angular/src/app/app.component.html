@@ -1,8 +1,23 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand">CRUD en Angular</a>
+        <div class="mx-4">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">About Me</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Recommendations</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
 <div class="container">
-    <div class="row text-center mt-4">
-        <h1 class="mx-auto">CRUD en Angular</h1>
-    </div>
-    <div class="button-container row mt-4">
+    <div class="button-container row mt-3">
         <div class="button d-flex justify-content-center col-sm-6">
             <button type="button" class="btn-lg btn-primary">
                 <a class="text-white" [routerLink]="['/create']">Create</a>
